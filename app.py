@@ -1,23 +1,11 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# 프로젝트 데이터
-PROJECTS = [
-    {"title": "Furniture AI", "img": "p1.jpg", "link": "https://..."},
-    {"title": "Chatbot UI", "img": "p2.jpg", "link": "https://..."},
-    {"title": "Portfolio Site", "img": "p3.jpg", "link": "https://..."},
-]
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/projects")
-def projects():
-    return render_template("projects.html", projects=PROJECTS)
-
+# =============================
+# 프로젝트 데이터 (한 번만 선언)
+# =============================
 PROJECTS = [
     {
         "title": "가구 쇼핑몰",
@@ -54,8 +42,20 @@ PROJECTS = [
     }
 ]
 
+# =============================
+# 라우팅
+# =============================
+@app.route("/")
+def index():
+    return render_template("index.html")
 
+@app.route("/projects")
+def projects():
+    return render_template("projects.html", projects=PROJECTS)
+
+# =============================
+# 실행
+# =============================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
