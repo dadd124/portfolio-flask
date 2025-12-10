@@ -161,7 +161,7 @@
 
 .footer-box p {
   margin: 6px 0;
-  color: #160000;
+  color: #f1efef;
 }
 
 .footer-box a {
@@ -353,4 +353,19 @@
     font-size: 15px;
   }
 }
+
+/* ===== 강제 Footer 다크 스타일 (최우선 적용) ===== */
+footer#contact {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+footer#contact a {
+  color: #ccc !important;
+}
+
+footer#contact a:hover {
+  color: #fff !important;
+}
+
 
