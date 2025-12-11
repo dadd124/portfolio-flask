@@ -202,12 +202,12 @@
 
 
 /* ========================= */
-/* PROJECTS SECTION (원페이지 최적화) */
+/* PROJECTS SECTION (원페이지 최적화 + Fade-in) */
 /* ========================= */
 
 .project-section {
   padding: 80px 10%;
-  background: #fafafa; /* skills 배경과 자연스럽게 이어짐 */
+  background: #fafafa;
 }
 
 .project-section h2 {
@@ -216,7 +216,31 @@
   margin-bottom: 50px;
 }
 
-/* 프로젝트 카드 */
+/* --- Fade-in 기본 설정 --- */
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.9s ease-out forwards;
+}
+
+/* 카드별 등장 딜레이 */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.3s; }
+.project-card:nth-child(3) { animation-delay: 0.5s; }
+
+/* --- FadeUp 애니메이션 키프레임 --- */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 프로젝트 카드 스타일 */
 .project-card {
   background: #ffffff;
   border: 1px solid #e1e1e1;
@@ -229,7 +253,7 @@
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
 }
 
 /* 좌우 정렬 */
@@ -311,6 +335,7 @@
     margin: 15px auto;
   }
 }
+
 
 
 /* ===== 타임라인 전체 ===== */
