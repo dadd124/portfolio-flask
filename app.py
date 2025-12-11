@@ -50,11 +50,8 @@ PROJECTS = [
 # =============================
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", projects=PROJECTS)
 
-@app.route("/projects")
-def projects():
-    return render_template("projects.html", projects=PROJECTS)
 
 # =============================
 # 실행
